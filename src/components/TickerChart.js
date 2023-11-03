@@ -5,6 +5,7 @@ import { addPoint } from "../utils/chart";
 function Ticker() {
   const [price, setPrice] = useState({ value: 0, ticks: 0 });
   const [color, setColor] = useState("black");
+  
   const prevPrice = useRef(price);
   const canvasRef = useRef();
 
@@ -23,6 +24,7 @@ function Ticker() {
   }, []);
 
   useEffect(() => {
+    // we need some way to get the prevPrice...
     if (prevPrice.current.value < price.value) {
       setColor("green");
     } else if (prevPrice.current.value > price.value) {
